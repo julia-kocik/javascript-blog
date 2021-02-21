@@ -119,3 +119,37 @@ body {
     margin: 0 10px 0 0;
   }
 }
+
+/* Tags */
+
+.tags li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+[class^="tag-size-"] {
+  text-decoration: none;
+  color: green;
+}
+
+
+.tag-size-5 span {
+  font-size: 36px;
+}
+
+.tag-size-4 span {
+  font-size: 32px;
+}
+
+.tag-size-3 span {
+  font-size: 24px;
+}
+
+.tag-size-2 span {
+  font-size: 20px;
+}
+
+.tag-size-1 span {
+  font-size: 18px;
+}
+
