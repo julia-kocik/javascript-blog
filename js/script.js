@@ -189,6 +189,7 @@
   addClickListenersToTags();
 
   function generateAuthors() {
+    let allAuthors = {};
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);  
     /* START LOOP: for every article: */
@@ -203,9 +204,29 @@
       const tagHTML = '<a href="#' + authorTags + '"><span>' + authorTags + '</span></a>';
       /* add generated code to html variable */
       html = html + tagHTML;
+      /* [NEW] check if this link is NOT already in allAuthors */
+      /*?????????????????????????????
+      if(!allAuthors[author]) {
+        allAuthors[author] = 1;
+      } else {
+        allAuthors[author]++;
+      } 
+      */
       /* insert HTML of all the links into the tags wrapper */
       authorWrapper.innerHTML = html;
     }
+    /* [NEW] find list of tags in right column */
+    const authorList = document.querySelector(optAuthorsListSelector);
+    //console.log(authorList);
+    let allAuthorsHTML = '';
+    /* [NEW] START LOOP: for each author in allAuthors: */
+    for (let author in allAuthors) {
+    /* [NEW] generate code of a link and add it to allAuthorsHTML */
+      allAuthorsHTML += '<li><a href="#' + author + '">' + '<span>' +  author + '</span></a></li>';
+    }
+    //console.log(allAuthorsHTML);
+    /*[NEW] add HTML from allAuthorsHTML to authorList */
+    authorList.innerHTML = allAuthorsHTML;
   }    
   generateAuthors();
 
